@@ -1,0 +1,27 @@
+public class FibonacciSum {
+
+    public static void main(String[] args) {
+        int limit = 4000000;
+        long sum = sumOfEvenFibonacciTerms(limit);
+
+        System.out.println("Sum of even-valued Fibonacci terms below " + limit + ": " + sum);
+    }
+
+    public static long sumOfEvenFibonacciTerms(int limit) {
+        long sum = 0;
+        int prevTerm = 1;
+        int currTerm = 2;
+
+        while (currTerm <= limit) {
+            if (currTerm % 2 == 0) {
+                sum += currTerm;
+            }
+
+            int nextTerm = prevTerm + currTerm;
+            prevTerm = currTerm;
+            currTerm = nextTerm;
+        }
+
+        return sum;
+    }
+}
